@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Catch Reports Site</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,700">
+	<style>
+	body {
+		font-family: 'Open Sans', sans-serif;
+		background: #4ABDAC;
+		color: white;
+	}
+	.container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+	pre {
+		background-color: #DFDCE3;
+		color: black;
+		font-family: monospace;
+		margin: 0px;
+		padding: 10px;
+		display: block;
+	}
+	h1 {
+		font-size: 72px;
+		color: #FC4A1A;
+		margin: 0;
+	}
+	h2 {
+		font-weight: 300;
+		margin: 0;
+		color: #F7B733;
+	}
+	h3 {
+		font-weight: 200;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Reports Catcher</h1>
+		<h2>What is it Catch Reports?</h2>
+		<p>A easy tool to upload reports from the CI to your gh-pages branch.</p>
+		<h2>How can I use it?</h2>
+		<p> You need to have installed ruby 2.x in your local machine and execute </p>
+		<pre>curl -O https://liferay-labs.github.io/reports-catcher/catch-reports.sh
+chmod +x catch-reports.sh
+./catch-reports.sh</pre>
+	</div>
+</body>
+</html>
