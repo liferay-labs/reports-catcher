@@ -16,6 +16,7 @@ testReports = ""
 cucumberReports = ""
 coverageReports = ""
 logsReports = ""
+checkReports = ""
 
 references = repo.split("/");
 
@@ -40,6 +41,10 @@ Dir.glob('**/build/reports/**/*').each do|f|
             cucumberReports = cucumberReports + "<li>  " +  "<a href=\""+ link +"\">" + link + "</a></li>\n"
         elsif f.include? "jacoco" then
             coverageReports = coverageReports + "<li>  " +  "<a href=\""+ link +"\">" + link + "</a></li>\n"
+        elsif f.include? "findBugs" then
+            checkReports = checkReports + "<li>  " +  "<a href=\""+ link +"\">" + link + "</a></li>\n"
+        elsif f.include? "findbugs" then
+            checkReports = checkReports + "<li>  " +  "<a href=\""+ link +"\">" + link + "</a></li>\n"
         else
             testReports = testReports + "<li>  " +  "<a href=\""+ link +"\">" + link + "</a></li>\n"
         end
@@ -87,12 +92,29 @@ t2 = Time.now
 
 puts "it takes "  + (t2 - t1).to_s
 
-pullMessage = "<html>\n" +
-"<details><summary><b> Test Reports </b></summary>\n" + testReports + "</details>\n" +
-"<details><summary><b> Functional Test Reports </b></summary>\n" + cucumberReports + "</details>\n" +
-"<details><summary><b> Coverage Reports </b></summary>\n" + coverageReports + "</details>\n" +
-"<details><summary><b> Logs </b></summary>\n" + logsReports + "</details>\n" +
-"</html>"
+pullMessage = "<html>\n" 
+
+unless testReports.empty?
+  pullMessage += "<details><summary><b> Test Reports </b></summary>\n" + testReports + "</details>\n" 
+end
+
+unless cucumberReports.empty?
+  pullMessage +=  "<details><summary><b> Functional Test Reports </b></summary>\n" + cucumberReports + "</details>\n"
+end
+
+unless checkReports.empty?
+  "<details><summary><b> Checks </b></summary>\n" + checkReports + "</details>\n" 
+end
+
+unless coverageReports.empty?
+  "<details><summary><b> Coverage Reports </b></summary>\n" + coverageReports + "</details>\n"
+end  
+
+unless logsReports.empty?
+  "<details><summary><b> Logs </b></summary>\n" + logsReports + "</details>\n" 
+end
+
+pullMessage += "</html>"
 
 puts pullMessage
 
