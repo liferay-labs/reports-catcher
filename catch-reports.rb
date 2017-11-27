@@ -99,19 +99,19 @@ unless testReports.empty?
 end
 
 unless cucumberReports.empty?
-  pullMessage +=  "<details><summary><b> Functional Test Reports </b></summary>\n" + cucumberReports + "</details>\n"
+  pullMessage += "<details><summary><b> Functional Test Reports </b></summary>\n" + cucumberReports + "</details>\n"
 end
 
 unless checkReports.empty?
-  "<details><summary><b> Checks </b></summary>\n" + checkReports + "</details>\n" 
+  pullMessage += "<details><summary><b> Checks </b></summary>\n" + checkReports + "</details>\n" 
 end
 
 unless coverageReports.empty?
-  "<details><summary><b> Coverage Reports </b></summary>\n" + coverageReports + "</details>\n"
+  pullMessage += "<details><summary><b> Coverage Reports </b></summary>\n" + coverageReports + "</details>\n"
 end  
 
 unless logsReports.empty?
-  "<details><summary><b> Logs </b></summary>\n" + logsReports + "</details>\n" 
+  pullMessage += "<details><summary><b> Logs </b></summary>\n" + logsReports + "</details>\n" 
 end
 
 pullMessage += "</html>"
